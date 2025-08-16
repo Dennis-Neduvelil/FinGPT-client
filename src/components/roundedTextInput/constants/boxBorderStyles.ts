@@ -1,0 +1,28 @@
+import { type ColorType } from "../../../types";
+
+export const borderColors: Record<ColorType, string> = {
+    blue: "border-blue-500 focus:border-blue-500 focus:ring-blue-500",
+    red: "border-red-500 focus:border-red-500 focus:ring-red-500",
+    green: "border-green-500 focus:border-green-500 focus:ring-green-500",
+    black: "border-black focus:border-black focus:ring-black",
+    slate: "border-slate-500 focus:border-slate-500 focus:ring-slate-500",
+    gray: "border-gray-500 focus:border-gray-500 focus:ring-gray-500",
+    zinc: "border-zinc-500 focus:border-zinc-500 focus:ring-zinc-500",
+    neutral: "border-neutral-500 focus:border-neutral-500 focus:ring-neutral-500",
+    stone: "border-stone-500 focus:border-stone-500 focus:ring-stone-500",
+    amber: "border-amber-500 focus:border-amber-500 focus:ring-amber-500",
+    orange: "border-orange-500 focus:border-orange-500 focus:ring-orange-500",
+    yellow: "border-yellow-500 focus:border-yellow-500 focus:ring-yellow-500",
+    lime: "border-lime-500 focus:border-lime-500 focus:ring-lime-500",
+    emerald: "border-emerald-500 focus:border-emerald-500 focus:ring-emerald-500",
+    teal: "border-teal-500 focus:border-teal-500 focus:ring-teal-500",
+    cyan: "border-cyan-500 focus:border-cyan-500 focus:ring-cyan-500",
+    sky: "border-sky-500 focus:border-sky-500 focus:ring-sky-500",
+    indigo: "border-indigo-500 focus:border-indigo-500 focus:ring-indigo-500",
+    violet: "border-violet-500 focus:border-violet-500 focus:ring-violet-500",
+    purple: "border-purple-500 focus:border-purple-500 focus:ring-purple-500",
+    fuchsia: "border-fuchsia-500 focus:border-fuchsia-500 focus:ring-fuchsia-500",
+    pink: "border-pink-500 focus:border-pink-500 focus:ring-pink-500",
+    rose: "border-rose-500 focus:border-rose-500 focus:ring-rose-500",
+    white: "border-white focus:border-white focus:ring-white",
+};

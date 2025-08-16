@@ -1,0 +1,28 @@
+export const Color = {
+  SLATE: "slate",
+  GRAY: "gray",
+  ZINC: "zinc",
+  NEUTRAL: "neutral",
+  STONE: "stone",
+  RED: "red",
+  ORANGE: "orange",
+  AMBER: "amber",
+  YELLOW: "yellow",
+  LIME: "lime",
+  GREEN: "green",
+  EMERALD: "emerald",
+  TEAL: "teal",
+  CYAN: "cyan",
+  SKY: "sky",
+  BLUE: "blue",
+  INDIGO: "indigo",
+  VIOLET: "violet",
+  PURPLE: "purple",
+  FUCHSIA: "fuchsia",
+  PINK: "pink",
+  ROSE: "rose",
+  WHITE: "white",
+  BLACK: "black",
+} as const;
+
+export type ColorType = typeof Color[keyof typeof Color];
