@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { OnboardingUI } from "./OnBoardingUI";
+import { SignInAndUpUI } from "./SignInAndUpUI";
 import { loginSchema, signUpSchema, type LoginInput, type SignUpInput } from "../../../../validators";
 
 // Fake API call functions (replace with your real endpoints)
@@ -73,7 +73,7 @@ const validate = () => {
   };
 
   return (
-    <OnboardingUI
+    <SignInAndUpUI
       email={email}
       setEmail={setEmail}
       password={password}

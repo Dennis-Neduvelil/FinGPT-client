@@ -7,7 +7,7 @@ import {
 } from "../../../../components";
 import { Color, Input } from "../../../../types";
 
-interface OnboardingUIProps {
+interface SignInAndUpUIProps {
   email: string;
   setEmail: (v: string) => void;
   password: string;
@@ -22,7 +22,7 @@ interface OnboardingUIProps {
   loading?: boolean;
 }
 
-export const OnboardingUI: React.FC<OnboardingUIProps> = ({
+export const SignInAndUpUI: React.FC<SignInAndUpUIProps> = ({
   email,
   setEmail,
   password,
