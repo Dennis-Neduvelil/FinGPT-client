@@ -39,7 +39,7 @@ import {
   Color,
   type PositionType,
   type ColorType,
-} from "../../types";
+} from "@/types";
 import { getButtonClasses } from "./constants";
 
 interface RoundedButtonProps {

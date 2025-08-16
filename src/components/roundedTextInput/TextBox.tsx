@@ -36,7 +36,7 @@
  */
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { Color, Input, type ColorType, type InputType } from "../../types";
+import { Color, Input, type ColorType, type InputType } from "@/types";
 import { borderColors } from "./constants";
 
 interface RoundedTextBoxProps {
@@ -62,7 +62,6 @@ export const RoundedTextBox: React.FC<RoundedTextBoxProps> = ({
   const [showPassword, setShowPassword] = useState(false);
   const colorClass = borderColors[color] ?? borderColors.black;
 
-  // compute input type correctly
   const inputType =
     type === Input.PASSWORD
       ? showPassword

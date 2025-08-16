@@ -4,8 +4,8 @@ import {
   Header,
   InlineActionText,
   DividerWithText,
-} from "../../../../components";
-import { Color, Input } from "../../../../types";
+} from "@/components";
+import { Color, Input } from "@/types";
 
 interface SignInAndUpUIProps {
   email: string;
