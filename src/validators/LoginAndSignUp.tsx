@@ -31,9 +31,10 @@ export const loginSchema = z.object({
   password: passwordSchema,
 });
 
-// Signup schema (extends login with confirm password check)
+// Signup schema (extends login with fullName and confirm password)
 export const signUpSchema = loginSchema
   .extend({
+    fullName: z.string().min(1, "Full name is required"),
     confirmPassword: z.string().min(1, "Confirm password is required"),
   })
   .refine((data) => data.password === data.confirmPassword, {
@@ -48,4 +49,5 @@ export type AuthErrors = {
   email?: string;
   password?: string;
   confirmPassword?: string;
+  fullName?: string;
 };

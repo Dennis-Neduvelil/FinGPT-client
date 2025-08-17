@@ -14,7 +14,14 @@ interface SignInAndUpUIProps {
   setPassword: (v: string) => void;
   confirmPassword: string;
   setConfirmPassword: (v: string) => void;
-  errors: { email?: string; password?: string; confirmPassword?: string };
+  fullName: string;
+  setFullName: (v: string) => void;
+  errors: {
+    email?: string;
+    password?: string;
+    confirmPassword?: string;
+    fullName?: string;
+  };
   isSignUp: boolean;
   toggleSignUp: () => void;
   handleLogin: () => void;
@@ -29,6 +36,8 @@ export const SignInAndUpUI: React.FC<SignInAndUpUIProps> = ({
   setPassword,
   confirmPassword,
   setConfirmPassword,
+  fullName,
+  setFullName,
   errors,
   isSignUp,
   toggleSignUp,
@@ -47,6 +56,21 @@ export const SignInAndUpUI: React.FC<SignInAndUpUIProps> = ({
           <h1 className="text-3xl font-semibold pb-2 text-center">
             {isSignUp ? "Create your account" : "Welcome back"}
           </h1>
+
+          {/* FullName (signup only) */}
+          {isSignUp && (
+            <div className="w-full">
+              <RoundedTextBox
+                id="fullName"
+                label="Full Name"
+                value={fullName}
+                onChange={setFullName}
+                color={Color.TEAL}
+                error={errors.fullName}
+                type={Input.TEXT}
+              />
+            </div>
+          )}
 
           {/* Email */}
           <div className="w-full">

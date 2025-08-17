@@ -1,10 +1,15 @@
 import { loginSchema, signUpSchema } from "@/validators";
 
-export type AuthErrors = { email?: string; password?: string; confirmPassword?: string };
+export type AuthErrors = {
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+  fullName?: string;
+};
 
 export const validateAuth = (
   isSignUp: boolean,
-  data: { email: string; password: string; confirmPassword?: string }
+  data: { email: string; password: string; confirmPassword?: string; fullName?: string }
 ): { valid: boolean; errors: AuthErrors } => {
   const errors: AuthErrors = {};
 

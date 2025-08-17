@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { SignInAndUpUI } from "./SignInAndUpUI";
 import { useAuth } from "@/hooks/reactQuery";
-import { validateAuth, type AuthErrors } from "@/utils/auth";
+import { type AuthErrors } from "@/utils/auth";
+import { handleLogin, handleSignUp } from "../../utils";
 
 export const OnBoarding = () => {
   const { loginMutation, signUpMutation } = useAuth();
@@ -9,20 +10,9 @@ export const OnBoarding = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [fullName, setFullName] = useState("");
   const [errors, setErrors] = useState<AuthErrors>({});
   const [isSignUp, setIsSignUp] = useState(false);
-
-  const handleLogin = () => {
-    const { valid, errors } = validateAuth(false, { email, password });
-    if (!valid) return setErrors(errors);
-    loginMutation.mutate({ email, password });
-  };
-
-  const handleSignUp = () => {
-    const { valid, errors } = validateAuth(true, { email, password, confirmPassword });
-    if (!valid) return setErrors(errors);
-    signUpMutation.mutate({ email, password, confirmPassword });
-  };
 
   return (
     <SignInAndUpUI
@@ -31,6 +21,8 @@ export const OnBoarding = () => {
       password={password}
       setPassword={setPassword}
       confirmPassword={confirmPassword}
+      fullName={fullName}
+      setFullName={setFullName}
       setConfirmPassword={setConfirmPassword}
       errors={errors}
       isSignUp={isSignUp}
@@ -38,8 +30,19 @@ export const OnBoarding = () => {
         setErrors({});
         setIsSignUp((prev) => !prev);
       }}
-      handleLogin={handleLogin}
-      handleSignUp={handleSignUp}
+      handleLogin={() =>
+        handleLogin({ email, password, setErrors, loginMutation })
+      }
+      handleSignUp={() =>
+        handleSignUp({
+          fullName,
+          email,
+          password,
+          confirmPassword,
+          setErrors,
+          signUpMutation,
+        })
+      }
       loading={loginMutation.isPending || signUpMutation.isPending}
     />
   );
