@@ -26,6 +26,8 @@ interface SignInAndUpUIProps {
   toggleSignUp: () => void;
   handleLogin: () => void;
   handleSignUp: () => void;
+  handleGoogleLogin: () => void;
+  handleAppleLogin: () => void;
   loading?: boolean;
 }
 
@@ -43,6 +45,8 @@ export const SignInAndUpUI: React.FC<SignInAndUpUIProps> = ({
   toggleSignUp,
   handleLogin,
   handleSignUp,
+  handleGoogleLogin,
+  handleAppleLogin,
   loading = false,
 }) => {
   return (
@@ -144,7 +148,7 @@ export const SignInAndUpUI: React.FC<SignInAndUpUIProps> = ({
               color={Color.TEAL}
               filled={false}
               icon="https://img.icons8.com/?size=100&id=V5cGWnc9R4xj&format=png&color=000000"
-              onClickHandler={() => console.log("Google login clicked")}
+              onClickHandler={handleGoogleLogin}
             />
 
             <RoundedButton
@@ -152,7 +156,7 @@ export const SignInAndUpUI: React.FC<SignInAndUpUIProps> = ({
               color={Color.TEAL}
               filled={false}
               icon="https://img.icons8.com/?size=100&id=95294&format=png&color=000000"
-              onClickHandler={() => console.log("Apple login clicked")}
+              onClickHandler={handleAppleLogin}
             />
           </div>
         )}

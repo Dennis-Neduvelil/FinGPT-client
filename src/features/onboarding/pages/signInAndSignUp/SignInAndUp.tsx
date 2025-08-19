@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { SignInAndUpUI } from "./SignInAndUpUI";
-import { useAuth } from "@/hooks/reactQuery";
+import { useAuth, useSocialLogin } from "@/hooks/reactQuery";
 import { type AuthErrors } from "@/utils/auth";
 import { handleLogin, handleSignUp } from "../../utils";
 
 export const OnBoarding = () => {
   const { loginMutation, signUpMutation } = useAuth();
-
+  const { googleLogin, appleLogin } = useSocialLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -43,6 +43,8 @@ export const OnBoarding = () => {
           signUpMutation,
         })
       }
+      handleGoogleLogin={googleLogin}
+      handleAppleLogin={appleLogin}
       loading={loginMutation.isPending || signUpMutation.isPending}
     />
   );

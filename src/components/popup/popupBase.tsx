@@ -90,7 +90,7 @@ export const PopupBase: React.FC<PopupBaseProps> = ({
     [PopupVariant.SUCCESS]: "border-green-500 text-green-800",
     [PopupVariant.ERROR]: "border-red-500 text-red-800",
     [PopupVariant.WARNING]: "border-yellow-500 text-yellow-800",
-    [PopupVariant.INFO]: "border-blue-500 text-blue-800",
+    [PopupVariant.INFO]: "border-black text-black",
   };
 
   // Progress bar colors based on variant
@@ -98,7 +98,7 @@ export const PopupBase: React.FC<PopupBaseProps> = ({
     [PopupVariant.SUCCESS]: "bg-green-500",
     [PopupVariant.ERROR]: "bg-red-500",
     [PopupVariant.WARNING]: "bg-yellow-500",
-    [PopupVariant.INFO]: "bg-blue-500",
+    [PopupVariant.INFO]: "bg-black",
   };
 
   return (
@@ -115,7 +115,7 @@ export const PopupBase: React.FC<PopupBaseProps> = ({
         <div className="flex justify-between items-start w-full">
           <div>
             <h3 className="font-semibold text-base">{heading}</h3>
-            <p className="text-sm mt-1 text-gray-700">{message}</p>
+            <p className="text-sm mt-1 text-gray-700 whitespace-pre-line">{message}</p>
           </div>
           <button
             onClick={handleClose}

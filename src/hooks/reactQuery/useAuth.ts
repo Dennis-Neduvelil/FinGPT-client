@@ -2,15 +2,8 @@ import { useMutation, type UseMutationResult } from "@tanstack/react-query";
 import { apiFetch, type ApiResponse, ApiError } from "@/lib/apiClient";
 import { type LoginInput, type SignUpInput } from "@/validators";
 import { usePopupStore } from "@/store";
-import { PopupVariant } from "@/types";
+import { PopupVariant, type AuthResponse } from "@/types";
 
-/**
- * Response type for login/signup API calls
- */
-interface AuthResponse {
-  userId: string;
-  accessToken: string;
-}
 
 /**
  * API function to log in a user
@@ -86,8 +79,8 @@ export const useAuth = (): {
   });
 
   const signUpMutation = useMutation<
-    ApiResponse<AuthResponse>, 
-    ApiError, 
+    ApiResponse<AuthResponse>,
+    ApiError,
     SignUpInput
   >({
     mutationFn: signUpApi,
