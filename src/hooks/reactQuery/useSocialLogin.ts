@@ -4,6 +4,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { useMutation } from "@tanstack/react-query";
 import { ApiError, apiFetch, type ApiResponse } from "@/lib/apiClient";
 import type { GoogleAuthInput } from "@/validators";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -31,6 +32,7 @@ const googleLoginApi = (
 
 export const useSocialLogin = () => {
     const showPopup = usePopupStore((state) => state.showPopup);
+    const navigate = useNavigate();
 
     const googleAuthMutation = useMutation<
         ApiResponse<AuthResponse>,
@@ -43,6 +45,7 @@ export const useSocialLogin = () => {
             if (token) {
                 localStorage.setItem("accessToken", token);
             }
+            navigate("/");
         },
         onError: (error) => {
             const errorMessage =
@@ -59,7 +62,6 @@ export const useSocialLogin = () => {
 
     const googleLogin = useGoogleLogin({
         onSuccess: (response) => {
-            console.log("Google login success:", response);
             googleAuthMutation.mutate({ code: response.code })
         },
         onError: (error) => {

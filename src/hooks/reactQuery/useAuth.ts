@@ -3,6 +3,7 @@ import { apiFetch, type ApiResponse, ApiError } from "@/lib/apiClient";
 import { type LoginInput, type SignUpInput } from "@/validators";
 import { usePopupStore } from "@/store";
 import { PopupVariant, type AuthResponse } from "@/types";
+import { useNavigate } from "react-router-dom";
 
 
 /**
@@ -52,6 +53,7 @@ export const useAuth = (): {
   signUpMutation: UseMutationResult<ApiResponse<AuthResponse>, ApiError, SignUpInput>;
 } => {
   const showPopup = usePopupStore((state) => state.showPopup);
+  const navigate = useNavigate();
 
   const loginMutation = useMutation<
     ApiResponse<AuthResponse>, // success type
@@ -64,6 +66,7 @@ export const useAuth = (): {
       if (token) {
         localStorage.setItem("accessToken", token);
       }
+      navigate("/");
     },
     onError: (error) => {
       const errorMessage =
@@ -89,6 +92,7 @@ export const useAuth = (): {
       if (token) {
         localStorage.setItem("accessToken", token);
       }
+      navigate("/");
     },
     onError: (error) => {
       const errorMessage =
